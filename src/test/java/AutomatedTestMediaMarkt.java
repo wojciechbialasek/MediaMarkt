@@ -4,8 +4,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertTrue;
-
 public class AutomatedTestMediaMarkt {
 
     private WebDriver driver;
@@ -16,20 +14,29 @@ public class AutomatedTestMediaMarkt {
         System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
         driver = new ChromeDriver();
         driver.navigate().to("https://mediamarkt.pl/");
+        driver.manage().window().maximize();
     }
 
     @Test
     public void asUserITryToFindeMacBookPro() {
 
-        FirstPage searchingBar = new FirstPage(driver);
-        searchingBar.SearchMacBook();
-        searchingBar.ClickOnLoup();
+        MainPage searchingMacBook = new MainPage(driver);
+        searchingMacBook.SearchMacBook();
+        searchingMacBook.ClickOnLoupe();
 
+        SecondPage sorting = new SecondPage(driver);
+        sorting.Sort();
+        sorting.ChoosePriceDesc();
+        sorting.SelectItem();
 
+        ThirdPage buying = new ThirdPage(driver);
+        buying.Basket();
 
+        FourthPage enterPostCode = new FourthPage(driver);
+        enterPostCode.EnterPostCode();
+        enterPostCode.ClickSave();
+        enterPostCode.CheckText();
     }
-
-
 
     @AfterMethod
     public void afterTest() {

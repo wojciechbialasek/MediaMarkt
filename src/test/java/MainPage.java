@@ -2,22 +2,23 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class FirstPage {
+public class MainPage {
     private WebDriver driver;
     CssSelector cssSelector = new CssSelector();
 
-    public FirstPage(WebDriver driver){
+    public MainPage(WebDriver driver){
+
         this.driver = driver;
     }
 
     public void SearchMacBook(){
 
-        WebElement search = driver.findElement(By.cssSelector(cssSelector.SearchBar));
+        WebElement search = driver.findElement(By.cssSelector(cssSelector.SearchMacBook));
         search.sendKeys("MacBook Pro");
     }
 
-    public void ClickOnLoup(){
-        WebElement loup = driver.findElement(By.cssSelector(cssSelector.Loup));
-        loup.click();
+    public void ClickOnLoupe(){
+        WebElement loupe = driver.findElement(By.cssSelector(cssSelector.Loupe));
+        loupe.click();
     }
 }
