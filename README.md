@@ -1,5 +1,5 @@
 # General info
-Automate test of MediaMarkt website. Tests written using Java and Sellenium WebDriver in page object pattern
+Automate test of MediaMarkt website. Tests written using Java and Selenium WebDriver in page object pattern
 
 The following test checks:
 - Search field
